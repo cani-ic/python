@@ -1,3 +1,4 @@
+################################################################################
 def getopts(argv):
     opts={}
     while argv:
@@ -9,7 +10,7 @@ def getopts(argv):
             argv=argv[1:]
     return opts
 
-
+################################################################################
 def interact():
     print('hello stream world')
     while True:
