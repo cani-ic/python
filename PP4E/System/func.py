@@ -22,3 +22,20 @@ def interact():
         else:
             num = int(reply)
         print("%d squared is %d" % (num,num**2) ) # pay attention to the third "%" in this line !!!
+
+################################################################################
+def scanner(name,function):
+    '''when you need to process a file line by line ,use this method'''
+    file = open(name,'r')
+    while True:
+        line = file.readline()
+        if not
+        if not line:break
+        function(line)
+    file.close()
+
+################################################################################
+def processLine(line)
+    if line[0] == '*':
+        print
+
