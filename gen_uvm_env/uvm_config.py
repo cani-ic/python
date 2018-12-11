@@ -1,5 +1,6 @@
 class UVMConfig():
     def __init__(self,modulename):
+        self.dirname         =   './out'   
         self.c_in_seqitem    =   'input_trans_'+modulename
         self.c_out_seqitem   =   'output_trans_'+modulename
         self.c_sqr           =   'sqr_'+modulename
