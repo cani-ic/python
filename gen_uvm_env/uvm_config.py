@@ -1,6 +1,10 @@
 class UVMConfig():
     def __init__(self,modulename):
-        self.dirname         =   './out'   
+        self.fobj_src        =   ''
+        self.clk             =   'GClk'
+        self.reset           =   'Reset_N'
+        self.todir           =   './out'   
+
         self.c_in_seqitem    =   'input_trans_'+modulename
         self.c_out_seqitem   =   'output_trans_'+modulename
         self.c_sqr           =   'sqr_'+modulename
@@ -16,18 +20,18 @@ class UVMConfig():
         self.c_drv_dut_if    =   'drv_dut_if_'+modulename
         self.c_dut_mon_if    =   'dut_mon_if_'+modulename
         
-        self.fname_in_seqitem    =   'input_trans_'+modulename+'.sv'
-        self.fname_out_seqitem   =   'output_trans_'+modulename+'.sv'
-        self.fname_sqr           =   'sqr_'+modulename+'.sv'
-        self.fname_drv           =   'drv_'+modulename+'.sv'
-        self.fname_mon           =   'mon_'+modulename+'.sv'
-        self.fname_agt           =   'agt_'+modulename+'.sv'
-        self.fname_mdl           =   'mdl_'+modulename+'.sv'
-        self.fname_scb           =   'scb_'+modulename+'.sv'
-        self.fname_env           =   'env_'+modulename+'.sv'
-        self.fname_base_test     =   'base_test_'+modulename+'.sv'
-        self.fname_demo_seq      =   'demo_seq_'+modulename+'.sv'
-        self.fname_demo_test     =   'demo_test_'+modulename+'.sv'
+        self.fn_in_seqitem    =   'input_trans_'+modulename+'.sv'
+        self.fn_out_seqitem   =   'output_trans_'+modulename+'.sv'
+        self.fn_sqr           =   'sqr_'+modulename+'.sv'
+        self.fn_drv           =   'drv_'+modulename+'.sv'
+        self.fn_mon           =   'mon_'+modulename+'.sv'
+        self.fn_agt           =   'agt_'+modulename+'.sv'
+        self.fn_mdl           =   'mdl_'+modulename+'.sv'
+        self.fn_scb           =   'scb_'+modulename+'.sv'
+        self.fn_env           =   'env_'+modulename+'.sv'
+        self.fn_base_test     =   'base_test_'+modulename+'.sv'
+        self.fn_demo_seq      =   'demo_seq_'+modulename+'.sv'
+        self.fn_demo_test     =   'demo_test_'+modulename+'.sv'
         
         self.m_module        =   'tb_'+modulename
         self.dir             =   'env_'+modulename
@@ -63,3 +67,12 @@ class UVMConfig():
         self.exp_port        =   'exp_port'
         self.exp_queue       =   'exp_queue'
         self.act_port        =   'act_port'
+
+    def set_fobj_src(self,fobj_src):
+        self.fobj_src = fobj_src 
+
+    def set_clk(self,clk):
+        self.clk = clk
+
+    def set_reset(self,reset):
+        self.reset = reset

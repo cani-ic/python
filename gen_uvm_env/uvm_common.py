@@ -24,20 +24,21 @@ def task_func_declare(f_obj,task_or_func,name,args):
     else:
         f_obj.write( "\textern virtual function void "+name+"("+args+");\n")
 
-def pattern_scanner(f_obj,task_or_func,name,args):
-    seek(f_obj,0,0);  #回到文件开头
-    while(<f_obj>)
-    {   
-        chomp;
-        if re.match(/input.*\s+(\w+)\s*;/)  #信号位宽为1 
-        {
-            if re.match(/Reset|Clk/) #时钟和复位不包含在item中
-            {
-                continue; 
-            }
-            else
-            {
-                f_obj.write("\t\t\t$i_drv_dut_if.%-30s<=\ttr.%-30s\n",$1,$1);
-            }
-        }
-    }
+def get_dut_clk(f_obj):
+    p_clk   = re.compile('([gc]?clk)',re.I)              #不区分大小写
+    for line in f_obj:
+        line = line.strip()
+        m_clk = p_clk.search(line)
+        if m_clk:
+            break
+    return m_clk.group()
+
+def get_dut_reset(f_obj):
+    p_reset = re.compile('(reset_n|rstn_i|rst_n)',re.I)     #不区分大小写
+    for line in f_obj:
+        line = line.strip()
+        m_reset =   p_reset.search(line)
+        if m_reset:
+            break
+    return m_reset.group()
+
